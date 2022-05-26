@@ -18,4 +18,4 @@ https://api.coindesk.com/v1/bpi/historical/close.json - котировки дл�
 ### Выбранные инструменты и окружение:
 - Symfony 4.4
 - Docker
-- PHP
+- PHP 8.1
