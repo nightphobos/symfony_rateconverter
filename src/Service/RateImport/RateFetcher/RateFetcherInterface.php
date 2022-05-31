@@ -10,5 +10,4 @@ interface RateFetcherInterface
      * @return RateDTO[]
      */
     public function getData(): array;
-
 }

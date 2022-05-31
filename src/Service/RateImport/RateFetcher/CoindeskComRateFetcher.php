@@ -8,7 +8,7 @@ use Exception;
 class CoindeskComRateFetcher extends RateFetcher
 {
     //Depends on api usage this may be transfered to configs
-    private const URL="https://api.coindesk.com/v1/bpi/historical/close.json";
+    private const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json';
 
     /**
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
@@ -16,11 +16,12 @@ class CoindeskComRateFetcher extends RateFetcher
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     *
      * @return RateDTO[]
      */
     public function getData(): array
     {
-        $response = $this->client->request("GET", self::URL);
+        $response = $this->client->request('GET', self::URL);
 
         //@TODO wrap in our error type
         $data = $response->toArray();
@@ -31,7 +32,8 @@ class CoindeskComRateFetcher extends RateFetcher
     /**
      * @return RateDTO[]
      */
-    private function prepareData($data): array {
+    private function prepareData($data): array
+    {
         $rate = null;
 
         try {
@@ -47,7 +49,7 @@ class CoindeskComRateFetcher extends RateFetcher
         $this->validator->validate($btcusd);
         $result[] = $btcusd;
 
-        $usdbtc = new RateDTO('USD', 'BTC', 1/$rate);
+        $usdbtc = new RateDTO('USD', 'BTC', 1 / $rate);
         $this->validator->validate($usdbtc);
         $result[] = $usdbtc;
 

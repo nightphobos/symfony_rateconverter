@@ -1,5 +1,7 @@
 <?php
+
 // src/Command/CreateUserCommand.php
+
 namespace App\Command;
 
 use App\DTO\ConvertDTO;
@@ -39,10 +41,10 @@ class RatesConvertCommand extends Command
         /** @var ConvertDTO $result */
         $result = $this->rateConvertService->rateCount($from, $to, $amount);
 
-        if (is_null($result)){
-            $output->writeln("Conversion is not possible");
+        if (is_null($result)) {
+            $output->writeln('Conversion is not possible');
         } else {
-            $output->writeln(sprintf("Conversion is possible, chain: %s, result sum %f", $result->chain, $result->result));
+            $output->writeln(sprintf('Conversion is possible, chain: %s, result sum %f', $result->chain, $result->result));
         }
 
         return 0;

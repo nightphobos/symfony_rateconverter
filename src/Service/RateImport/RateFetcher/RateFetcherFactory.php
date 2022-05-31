@@ -9,9 +9,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class RateFetcherFactory
 {
-    public const FETCHER_COINDESK_COM = "coindesk.com";
+    public const FETCHER_COINDESK_COM = 'coindesk.com';
 
-    public const FETCHER_EUROPA_EU = "europa.eu";
+    public const FETCHER_EUROPA_EU = 'europa.eu';
 
     private HttpClientInterface $client;
     private ValidatorInterface $validator;
@@ -33,7 +33,7 @@ class RateFetcherFactory
             case self::FETCHER_EUROPA_EU:
                 return new EuropaEuRateFetcher($this->client, $this->validator);
             default:
-                throw new Exception(sprintf("Source %f unknown", $source));
+                throw new Exception(sprintf('Source %f unknown', $source));
         }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Command;
 
 use App\Service\RateImport\RateImportService;
@@ -20,10 +21,9 @@ class RatesGetCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
         $amount = $this->rateImportService->import();
 
-        $output->writeln(sprintf("Rates imported successfully, total currencies: %d", $amount));
+        $output->writeln(sprintf('Rates imported successfully, total currencies: %d', $amount));
 
         return 0;
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\DTO;
 
 class ConvertDTO
@@ -7,9 +8,9 @@ class ConvertDTO
 
     public float $result;
 
-    public function __construct(string $chain, float $result) {
+    public function __construct(string $chain, float $result)
+    {
         $this->chain = $chain;
         $this->result = $result;
     }
-
 }
