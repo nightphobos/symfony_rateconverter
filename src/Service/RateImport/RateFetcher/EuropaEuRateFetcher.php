@@ -9,6 +9,13 @@ class EuropaEuRateFetcher extends RateFetcher
 {
     private const URL = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
 
+    /**
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @return RateDTO[]
+     */
     public function getData(): array
     {
         $response = $this->client->request("GET", self::URL);
@@ -20,12 +27,13 @@ class EuropaEuRateFetcher extends RateFetcher
     }
 
     private function prepareData(SimpleXMLElement $data): array{
+        $result=[];
         $baseCurrency = "EUR";
 
-        foreach ($data->Cube->Cube->children() as $child){
+        foreach ($data->Cube->Cube->children() as $child) {
             $currency = null;
             $rate = null;
-            foreach ($child->attributes() as $a => $b){
+            foreach ($child->attributes() as $a => $b) {
                 if ($a === "currency") {
                     $currency = $b;
                 }

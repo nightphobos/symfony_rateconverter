@@ -20,14 +20,41 @@
     "dnoegel/php-xdg-base-dir": {
         "version": "v0.1.1"
     },
+    "doctrine/annotations": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
     "doctrine/instantiator": {
         "version": "1.4.1"
+    },
+    "doctrine/lexer": {
+        "version": "1.2.3"
     },
     "felixfbecker/advanced-json-rpc": {
         "version": "v3.2.1"
     },
     "felixfbecker/language-server-protocol": {
         "version": "v1.5.2"
+    },
+    "friendsofphp/php-cs-fixer": {
+        "version": "2.19",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.19",
+            "ref": "34d1a22f840953909c581b8f993093b14cc9491b"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
     },
     "myclabs/deep-copy": {
         "version": "1.11.0"
@@ -46,6 +73,9 @@
     },
     "phar-io/version": {
         "version": "3.2.1"
+    },
+    "php-cs-fixer/diff": {
+        "version": "v1.3.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -144,6 +174,18 @@
     },
     "sebastian/version": {
         "version": "3.0.2"
+    },
+    "squizlabs/php_codesniffer": {
+        "version": "3.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.6",
+            "ref": "1019e5c08d4821cb9b77f4891f8e9c31ff20ac6f"
+        },
+        "files": [
+            "phpcs.xml.dist"
+        ]
     },
     "symfony/browser-kit": {
         "version": "v4.4.37"
@@ -251,6 +293,9 @@
     "symfony/mime": {
         "version": "v4.4.41"
     },
+    "symfony/options-resolver": {
+        "version": "v4.4.37"
+    },
     "symfony/phpunit-bridge": {
         "version": "6.0",
         "recipe": {
@@ -287,6 +332,9 @@
     "symfony/polyfill-php81": {
         "version": "v1.25.0"
     },
+    "symfony/process": {
+        "version": "v4.4.41"
+    },
     "symfony/routing": {
         "version": "4.4",
         "recipe": {
@@ -303,6 +351,9 @@
     },
     "symfony/service-contracts": {
         "version": "v2.5.1"
+    },
+    "symfony/stopwatch": {
+        "version": "v4.4.38"
     },
     "symfony/translation-contracts": {
         "version": "v2.5.1"

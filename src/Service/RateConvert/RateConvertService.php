@@ -15,6 +15,9 @@ class RateConvertService
         $this->cache = new FilesystemAdapter('', 0, "/app/cache");
     }
 
+    /**
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function rateCount(string $from, string $to, float $amount) : ?ConvertDTO {
         /** @var CacheItem $cacheItem */
         $cacheItem = $this->cache->getItem(RateImportService::CACHE_KEY);
@@ -24,7 +27,8 @@ class RateConvertService
 
     private function recursiveNDepth($rates, $from, $to, $amount, $chain='', $depthLimit=3) : ?ConvertDTO {
         $depthLimit--;
-        if($depthLimit<0){
+
+        if ($depthLimit<0) {
             return null;
         }
 

@@ -2,11 +2,7 @@
 
 namespace App\Service\RateImport\RateFetcher;
 
-use GuzzleHttp\Client;
-use Exception;
-use GuzzleHttp\ClientInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Validator\ValidatorBuilder;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 abstract class RateFetcher implements RateFetcherInterface

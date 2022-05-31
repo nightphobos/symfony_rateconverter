@@ -5,7 +5,6 @@ namespace App\Service\RateImport;
 use App\DTO\RateDTO;
 use App\Service\RateImport\RateFetcher\RateFetcherFactory;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Contracts\Cache\ItemInterface;
 
 class RateImportService
 {
