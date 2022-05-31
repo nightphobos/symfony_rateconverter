@@ -54,7 +54,7 @@ sh prompt should appear after third step, and you can run symfony commands:
 > 
 > Rates imported successfully, total currencies: 33
 
-> bin/console app:rates:convert BTC NZD 10
+> bin/console app:rates:convert 10 BTC NZD
 > 
 > Conversion is possible, chain: BTC->USD->EUR->NZD, result sum 445658.518095
 

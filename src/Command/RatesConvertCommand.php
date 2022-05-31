@@ -26,9 +26,9 @@ class RatesConvertCommand extends Command
     protected function configure(): void
     {
         $this
+            ->addArgument('amount', InputArgument::REQUIRED, 'Amount we are converting')
             ->addArgument('from', InputArgument::REQUIRED, 'Current we convert')
             ->addArgument('to', InputArgument::REQUIRED, 'Current we convert to')
-            ->addArgument('amount', InputArgument::REQUIRED, 'Amount we are converting')
         ;
     }
 
@@ -42,9 +42,9 @@ class RatesConvertCommand extends Command
         $result = $this->rateConvertService->rateCount($from, $to, $amount);
 
         if (is_null($result)) {
-            $output->writeln('Conversion is not possible');
+            $output->writeln('Conversion is not possible, or incorrect currency code');
         } else {
-            $output->writeln(sprintf('Conversion is possible, chain: %s, result sum %f', $result->chain, $result->result));
+            $output->writeln(sprintf('Conversion succeeded, chain: %s, result sum %f', $result->chain, $result->result));
         }
 
         return 0;

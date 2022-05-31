@@ -22,6 +22,7 @@ class RateImportService
     {
         $subresult = [];
 
+        //After more source we can put consts in single outer inerface and iterate over it's consts
         foreach ([RateFetcherFactory::FETCHER_EUROPA_EU, RateFetcherFactory::FETCHER_COINDESK_COM] as $fetcherClass) {
             $fetcher = $this->rateFetcherFactory->build($fetcherClass);
             $subresult[] = $fetcher->getData();

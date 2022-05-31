@@ -21,6 +21,9 @@ class RateConvertService
      */
     public function rateCount(string $from, string $to, float $amount): ?ConvertDTO
     {
+        if($from === $to) {
+            return new ConvertDTO($this->chainBuilder($from, $from), $amount);
+        }
         /** @var CacheItem $cacheItem */
         $cacheItem = $this->cache->getItem(RateImportService::CACHE_KEY);
         $rates = $cacheItem->get();
@@ -36,11 +39,11 @@ class RateConvertService
             return null;
         }
 
-        $chain .= $from.'->';
+        $chain = $this->chainBuilder($from, $chain);
 
         $seekSlice = $rates[$from];
         if (array_key_exists($to, $seekSlice)) {
-            $chain .= $to;
+            $chain = $this->chainBuilder($to, $chain);
             $amount *= $seekSlice[$to];
 
             return new ConvertDTO($chain, $amount);
@@ -56,5 +59,13 @@ class RateConvertService
         }
 
         return null;
+    }
+
+    private function chainBuilder( string $currency, string $chain=""): string {
+        if (empty($chain)){
+            return $currency;
+        }
+
+        return sprintf("%s->%s", $chain, $currency);
     }
 }
